@@ -15,6 +15,7 @@ interface SignupFormValues {
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   constructor(private http: HttpClient) { }
@@ -32,6 +33,5 @@ export class AuthService {
       formValues
     );
   }
-
 
 }
