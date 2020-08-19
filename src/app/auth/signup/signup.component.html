@@ -1,0 +1,38 @@
+<div class="signup-wrapper">
+  <form (ngSubmit)="onSubmit()" class="ui form" [formGroup]="authForm">
+    <h3>Create An Account</h3>
+
+    <app-input 
+    inputType="text"
+    label="User Name" 
+    [control]="authForm.get('username')"></app-input>
+    <!-- {{ authForm.get('username').errors | json }} -->
+
+    <app-input 
+    inputType="password"
+    label="Password" 
+    [control]="authForm.get('password')"></app-input>
+  
+    <app-input 
+    inputType="password"
+    label="Password Confirmation" 
+    [control]="authForm.get('passwordConfirmation')"></app-input>
+    
+    <div 
+      class="ui red basic pointing label" 
+      *ngIf="authForm.get('password').touched && 
+      authForm.get('passwordConfirmation').touched && 
+      authForm.errors">
+
+      <p *ngIf="authForm.errors.passwordDontMatch"> 
+        Password and Password Confirmation dont match
+      </p>
+
+    </div>
+
+    <div class="bt-regiter">
+      <button class="ui blue basic button">Submit</button>
+    </div>
+<!-- {{ authForm.errors | json }} -->
+  </form>
+</div>
